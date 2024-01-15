@@ -76,7 +76,7 @@ public class SystemTests extends XrayTestsBase {
     public void testJFrogInactiveEnvFalsePositives() throws IOException {
         // The redirection response doesn't contain "reactivate-server" so it should not be detected as JFrogInactiveEnv
         mockServer.when(request().withPath("/xray/api/v1/system/version")).respond(response().withBody("{}").withStatusCode(302).withHeader(LOCATION, "http://localhost:8888/eco-server"));
-        mockServer.when(request().withPath("/eco-server")).respond(response().withBody("{\"xray_version\":\"3.66.4\",\"xray_revision\":\"4cae8b1\"}").withStatusCode(200));
+        //mockServer.when(request().withPath("/eco-server")).respond(response().withBody("{\"xray_version\":\"3.66.4\",\"xray_revision\":\"4cae8b1\"}").withStatusCode(200));
         try (Xray xrayMock = new XrayClientBuilder().setUrl("http://localhost:8888/xray/").build()) {
             assertEquals(xrayMock.system().version().getVersion(), "3.66.4");
         }
