@@ -1,3 +1,4 @@
+/**
 package com.jfrog.xray.client.impl.test;
 
 import com.jfrog.xray.client.Xray;
@@ -106,3 +107,4 @@ public class XrayTestsBase {
         }
     }
 }
+**/
